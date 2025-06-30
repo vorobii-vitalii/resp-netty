@@ -4,11 +4,11 @@ plugins {
     id "com.vanniktech.maven.publish" version "0.33.0"
 }
 
-group = 'io.vitaliivorobii.resp'
-version = '1.0'
+group = 'io.github.vorobii-vitalii'
+version = '1.0.0'
 
 mavenPublishing {
-    publishToMavenCentral(true)
+    publishToMavenCentral()
     signAllPublications()
 
 
