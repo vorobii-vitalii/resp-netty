@@ -7,11 +7,10 @@ plugins {
 group = 'io.vitaliivorobii.resp'
 version = '1.0'
 
-import com.vanniktech.maven.publish.SonatypeHost
-
 mavenPublishing {
-    publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
+    publishToMavenCentral()
     signAllPublications()
+
 
     coordinates("io.github.vorobii-vitalii", "resp-netty", "1.0.0")
 
