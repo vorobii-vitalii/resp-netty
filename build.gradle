@@ -10,7 +10,7 @@ version = '1.0'
 import com.vanniktech.maven.publish.SonatypeHost
 
 mavenPublishing {
-    publishToMavenCentral()
+    publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
     signAllPublications()
 
     coordinates("io.github.vorobii-vitalii", "resp-netty", "1.0.0")
