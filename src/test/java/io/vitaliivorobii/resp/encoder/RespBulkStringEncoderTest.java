@@ -14,7 +14,7 @@ class RespBulkStringEncoderTest {
     void encode() {
         RespBulkString respBulkError = new RespBulkString("message");
         assertThat(TestUtils.encode(encoder, respBulkError))
-                .isEqualTo("!7\r\nmessage\r\n");
+                .isEqualTo("$7\r\nmessage\r\n");
     }
 
 }
