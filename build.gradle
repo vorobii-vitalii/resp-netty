@@ -7,11 +7,6 @@ plugins {
 group = 'io.vitaliivorobii.resp'
 version = '1.0'
 
-java {
-    withJavadocJar()
-    withSourcesJar()
-}
-
 import com.vanniktech.maven.publish.SonatypeHost
 
 mavenPublishing {
@@ -44,12 +39,6 @@ mavenPublishing {
             developerConnection = 'scm:git:ssh://github.com/vorobii-vitalii/resp-netty.git'
             url = 'https://github.com/vorobii-vitalii/resp-netty'
         }
-    }
-}
-
-javadoc {
-    if(JavaVersion.current().isJava9Compatible()) {
-        options.addBooleanOption('html5', true)
     }
 }
 
