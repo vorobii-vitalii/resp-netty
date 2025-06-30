@@ -8,7 +8,7 @@ group = 'io.vitaliivorobii.resp'
 version = '1.0'
 
 mavenPublishing {
-    publishToMavenCentral()
+    publishToMavenCentral(true)
     signAllPublications()
 
 
