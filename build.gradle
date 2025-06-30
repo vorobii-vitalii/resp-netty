@@ -1,8 +1,7 @@
 plugins {
     id 'java'
     id 'java-library'
-    id 'maven-publish'
-    id 'signing'
+    id "com.vanniktech.maven.publish" version "0.33.0"
 }
 
 group = 'io.vitaliivorobii.resp'
@@ -13,60 +12,40 @@ java {
     withSourcesJar()
 }
 
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            artifactId = 'resp-netty'
-            from components.java
-            versionMapping {
-                usage('java-api') {
-                    fromResolutionOf('runtimeClasspath')
-                }
-                usage('java-runtime') {
-                    fromResolutionResult()
-                }
-            }
-            pom {
-                name = 'resp-netty'
-                description = 'Implementation of REdis Serialization Protocol(RESP) in Netty '
-                url = 'https://github.com/vorobii-vitalii/resp-netty'
-                licenses {
-                    license {
-                        name = 'The Apache License, Version 2.0'
-                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-                    }
-                }
-                developers {
-                    developer {
-                        id = 'vorobii-vitalii'
-                        name = 'Vitalii Vorobii'
-                        email = 'vitalij.vorobij@gmail.com'
-                    }
-                }
-                scm {
-                    connection = 'scm:git:git://github.com/vorobii-vitalii/resp-netty.git'
-                    developerConnection = 'scm:git:ssh://github.com/vorobii-vitalii/resp-netty.git'
-                    url = 'https://github.com/vorobii-vitalii/resp-netty'
-                }
+import com.vanniktech.maven.publish.SonatypeHost
+
+mavenPublishing {
+    publishToMavenCentral()
+    signAllPublications()
+
+    coordinates("io.github.vorobii-vitalii", "resp-netty", "1.0.0")
+
+    pom {
+        name = "resp-netty"
+        description = "Implementation of REdis Serialization Protocol(RESP) in Netty"
+        inceptionYear = "2025"
+        url = "https://github.com/vorobii-vitalii/resp-netty"
+        licenses {
+            license {
+                name = "The Apache License, Version 2.0"
+                url = "http://www.apache.org/licenses/LICENSE-2.0.txt"
+                distribution = "http://www.apache.org/licenses/LICENSE-2.0.txt"
             }
         }
-    }
-    repositories {
-        maven {
-            name = "OSSRH"
-            url = "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
-            credentials {
-                username = System.getenv("MAVEN_USERNAME")
-                password = System.getenv("MAVEN_PASSWORD")
+        developers {
+            developer {
+                id = "vorobii-vitalii"
+                name = "Vitalii Vorobii"
+                url = "vitalij.vorobij@gmail.com"
             }
+        }
+        scm {
+            connection = 'scm:git:git://github.com/vorobii-vitalii/resp-netty.git'
+            developerConnection = 'scm:git:ssh://github.com/vorobii-vitalii/resp-netty.git'
+            url = 'https://github.com/vorobii-vitalii/resp-netty'
         }
     }
 }
-
-signing {
-    sign publishing.publications.mavenJava
-}
-
 
 javadoc {
     if(JavaVersion.current().isJava9Compatible()) {
