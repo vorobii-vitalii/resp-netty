@@ -3,7 +3,7 @@ on:
   release:
     types: [created]
 jobs:
-  publish:
+  publish-to-maven-central:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
