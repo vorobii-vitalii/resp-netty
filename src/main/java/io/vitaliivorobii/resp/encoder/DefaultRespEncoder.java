@@ -19,8 +19,8 @@ public class DefaultRespEncoder extends DelegatingRespEncoder {
         addEncoder(RespVerbatimString.class, new RespVerbatimStringEncoder());
         addEncoder(RespMap.class, new RespMapEncoder(this));
         addEncoder(RespAttributes.class, new RespAttributesEncoder(this));
-//        Sets 	RESP3 	Aggregate 	~
-//        Pushes 	RESP3 	Aggregate 	>
+        addEncoder(RespSet.class, new RespSetEncoder(this));
+        addEncoder(RespPush.class, new RespPushEncoder(this));
     }
 
 
