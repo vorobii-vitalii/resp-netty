@@ -28,7 +28,7 @@ public class ByteToRespMessageDecoder extends ByteToMessageDecoder {
             if (decodeResult.isPresent()) {
                 var v = decodeResult.get();
                 RespDataType object = v.parsedObject();
-                log.info("Parsed {} of size {}", object, v.scanedBytes());
+                log.debug("Parsed {} of size {}", object, v.scanedBytes());
                 out.add(object);
                 in.skipBytes(v.scanedBytes());
             } else {
