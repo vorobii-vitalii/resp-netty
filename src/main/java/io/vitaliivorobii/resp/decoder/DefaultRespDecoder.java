@@ -15,8 +15,7 @@ public class DefaultRespDecoder extends DelegatingRespDecoder {
         this.addDecoder((byte) '!', new RespRespBulkErrorDecoder());
         this.addDecoder((byte) '=', new RespVerbatimStringDecoder());
         this.addDecoder((byte) '%', new RespMapDecoder(this));
-        // TODO:
-//        Attributes 	RESP3 	Aggregate 	`
+        this.addDecoder((byte) '|', new RespMapDecoder(this));
 //        Sets 	RESP3 	Aggregate 	~
 //        Pushes 	RESP3 	Aggregate 	>
     }

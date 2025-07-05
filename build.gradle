@@ -68,7 +68,6 @@ javadoc {
     }
 }
 
-
 repositories {
     mavenCentral()
 }
